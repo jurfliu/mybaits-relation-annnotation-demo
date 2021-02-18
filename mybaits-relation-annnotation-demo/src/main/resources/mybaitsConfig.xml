@@ -2,10 +2,11 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 <properties resource="mybaits-jdbc.properties"></properties>
-    <!-- 起别名-->
+    <!-- 起别名
     <typeAliases>
         <typeAlias type="com.ljf.mybaits.relation.annotation.domain.User" alias="user"></typeAlias>
     </typeAliases>
+    -->
     <!-- 注册类型注册器
     <typeHandlers>
         <typeHandler handler="com.mybaits.demo.handler.DataTypeTransfer"></typeHandler>

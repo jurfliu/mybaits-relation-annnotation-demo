@@ -19,7 +19,7 @@ public class App
       //  update();
         findAll();
         findSingleUser();
-        delete();
+       // delete();
         findSingleUser();
         System.out.println( "Hello World!" );
     }
