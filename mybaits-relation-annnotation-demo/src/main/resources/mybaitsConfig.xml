@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<properties resource="mybaits-jdbc.properties"></properties>
+    <!-- 起别名-->
+    <typeAliases>
+        <typeAlias type="com.ljf.mybaits.relation.annotation.domain.User" alias="user"></typeAlias>
+    </typeAliases>
+    <!-- 注册类型注册器
+    <typeHandlers>
+        <typeHandler handler="com.mybaits.demo.handler.DataTypeTransfer"></typeHandler>
+    </typeHandlers>
+    -->
+    <!--配置分页插件 -->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>
+<!-- 数据源环境 -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+ <!-- xxxmapper.xml都要在mybaits.config.xml文件中注册-->
+
+    <!--加载映射关系-->
+    <mappers>
+        <!--指定接口所在的包-->
+        <package name="com.ljf.mybaits.relation.annotation.dao"></package>
+    </mappers>
+</configuration>
