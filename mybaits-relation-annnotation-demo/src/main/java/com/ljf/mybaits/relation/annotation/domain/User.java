@@ -1,6 +1,7 @@
 package com.ljf.mybaits.relation.annotation.domain;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @ClassName: User
@@ -13,6 +14,14 @@ public class User {
     private int id;
     private String userName;
     private Date birthday;
+     //描述的是当前用户具有的订单
+    private List<Order> orderList;
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
 
     public int getId() {
         return id;
@@ -44,6 +53,7 @@ public class User {
                 "id=" + id +
                 ", userName='" + userName + '\'' +
                 ", birthday=" + birthday +
+                ", orderList=" + orderList +
                 '}';
     }
 }

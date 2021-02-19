@@ -36,4 +36,7 @@ public interface OrderMapper {
             @Result(column = "birthday",property = "user.birthday")
     })
     public List<Order> findAll2();
+   //多对一使用，被usermapper中的findUserAndRoleAll方法调用
+   @Select("select id id,order_time orderTime,total from tb_orders where uid=#{uid}")
+   public List<Order> findByUid(int uid);
 }

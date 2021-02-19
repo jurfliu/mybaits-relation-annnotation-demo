@@ -1,9 +1,6 @@
 package com.ljf.mybaits.relation.annotation.dao;
 import com.ljf.mybaits.relation.annotation.domain.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,5 +16,21 @@ public interface UserMapper {
     public User findById(int id);
     @Select("select id,user_name userName,birthday   from tb_users")
     public List<User> findAll();
+    //配置多对1的关系
+    @Select("SELECT * FROM tb_users")
+    @Results({
+            @Result(id = true,column = "id",property = "id"),
+            @Result(column = "user_name",property = "userName"),
+            @Result(column = "birthday",property = "birthday"),
+            @Result(
+                    property = "orderList",
+                    column = "id",
+                    javaType = List.class,
+                    //一对多的配置，多是order
+                    many = @Many(select = "com.ljf.mybaits.relation.annotation.dao.OrderMapper.findByUid")
+            )
+    })
+    public List<User> findUserAndRoleAll();
+
 }
 

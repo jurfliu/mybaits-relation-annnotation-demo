@@ -12,4 +12,6 @@ public interface UserService {
     public void delete(int id) throws IOException;
     public User findById(int id) throws IOException;
     public List<User> findAll() throws IOException;
+    //查询1对多的查询
+    public List<User> findUserAndRoleAll() throws IOException;
 }
