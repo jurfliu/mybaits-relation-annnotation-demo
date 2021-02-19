@@ -69,6 +69,7 @@ public class UserServiceImpl implements UserService {
         return userList;
     }
 
+
     @Override
     public List<User> findUserAndRoleAll() throws IOException {
         InputStream resourceAsStream = Resources.getResourceAsStream("mybaitsConfig.xml");
@@ -76,6 +77,16 @@ public class UserServiceImpl implements UserService {
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
         mapper = sqlSession.getMapper(UserMapper.class);
         List<User> userList=mapper.findUserAndRoleAll();
+        return userList;
+    }
+
+    @Override
+    public List<User> findUserAndOrderAll() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("mybaitsConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> userList=mapper.findUserAndOrderAll();
         return userList;
     }
 }

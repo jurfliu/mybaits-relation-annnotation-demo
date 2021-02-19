@@ -8,18 +8,18 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * @ClassName: APP3
+ * @ClassName: APP4
  * @Description: TODO
  * @Author: liujianfu
- * @Date: 2021/02/19 09:53:12 
+ * @Date: 2021/02/19 10:43:23 
  * @Version: V1.0
  **/
-public class APP3 {
+public class APP4 {
     public static void main(String[] args) throws IOException {
         UserService us=new UserServiceImpl();
-      List<User> userList=  us.findUserAndOrderAll();
-      for(User u:userList){
-          System.out.println("u:"+u);
-      }
+        List<User> userList=  us.findUserAndRoleAll();
+        for(User u:userList){
+            System.out.println("u:"+u);
+        }
     }
 }

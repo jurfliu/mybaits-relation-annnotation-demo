@@ -30,7 +30,20 @@ public interface UserMapper {
                     many = @Many(select = "com.ljf.mybaits.relation.annotation.dao.OrderMapper.findByUid")
             )
     })
+    public List<User> findUserAndOrderAll();
+    //n：n的关系
+    @Select("SELECT * FROM tb_users")
+    @Results({
+            @Result(id = true,column = "id",property = "id"),
+            @Result(column = "user_name",property = "userName"),
+            @Result(column = "birthday",property = "birthday"),
+            @Result(
+                    property = "roleList",
+                    column = "id",
+                    javaType = List.class,
+                    many = @Many(select = "com.ljf.mybaits.relation.annotation.dao.RoleMapper.findByUid")
+            )
+    })
     public List<User> findUserAndRoleAll();
-
 }
 

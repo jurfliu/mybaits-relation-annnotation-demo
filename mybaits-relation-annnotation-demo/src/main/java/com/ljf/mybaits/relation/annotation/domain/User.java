@@ -23,6 +23,16 @@ public class User {
         this.orderList = orderList;
     }
 
+    //当前用户具备哪些角色
+    private List<Role> roleList;
+
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
+    }
     public int getId() {
         return id;
     }
@@ -47,6 +57,8 @@ public class User {
         this.birthday = birthday;
     }
 
+
+
     @Override
     public String toString() {
         return "User{" +
@@ -54,6 +66,7 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", birthday=" + birthday +
                 ", orderList=" + orderList +
+                ", roleList=" + roleList +
                 '}';
     }
 }
